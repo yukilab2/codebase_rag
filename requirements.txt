@@ -7,7 +7,7 @@ uvicorn
 python-multipart
 pillow
 pytesseract
-numpy
-opencv-python
+numpy==1.24.3
+opencv-python-headless==4.8.0.74
 pydantic
 pdfplumber 
