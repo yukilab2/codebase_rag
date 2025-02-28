@@ -14,6 +14,8 @@
 6. **OpenCV**: 画像処理
 7. **PDFPlumber**: PDFからのテキスト抽出
 
+![Web UI](screenshot.png)
+
 ## 機能
 
 ### コードベース分析機能
