@@ -48,6 +48,8 @@
 ├── code_indexer.py          # ソースコードのインデックス作成スクリプト
 ├── code_query.py            # コードベースへの質問処理スクリプト
 ├── source_code/             # 分析対象のソースコード（マウントポイント）
+│   ├── docs/pdf             # 分析対象のPDF(必要であればここにおいてください)
+│   └── docs/images          # 分析対象の画像(必要であればここにおいてください)
 ├── static/                  # 静的ファイル
 │   └── images/              # 画像ファイル（UML図など）
 └── chroma_db/               # ChromaDBのデータ保存先
