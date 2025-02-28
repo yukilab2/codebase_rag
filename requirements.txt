@@ -1,0 +1,13 @@
+langchain==0.0.267
+langchain-anthropic
+chromadb
+sentence-transformers
+fastapi
+uvicorn
+python-multipart
+pillow
+pytesseract
+numpy
+opencv-python
+pydantic
+pdfplumber 
