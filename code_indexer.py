@@ -14,7 +14,7 @@ import cv2
 
 # 設定
 SOURCE_CODE_DIR = "/code_repo"  # コンテナ内のソースコードディレクトリ
-DOCS_DIR = os.path.join(SOURCE_CODE_DIR, "docs")  # ドキュメントディレクトリ
+DOCS_DIR = os.path.join(SOURCE_CODE_DIR, "docs")  # ドキュメントディレクトリ（後方互換性のため残す）
 CHROMA_PERSIST_DIR = "/app/chroma_db"  # ChromaDBの保存先
 CHROMA_HOST = "chroma"  # ChromaDBのホスト名
 CHROMA_PORT = 8000  # ChromaDBのポート
@@ -71,15 +71,12 @@ def get_all_code_files():
     return all_files
 
 def get_all_doc_files():
-    """docsディレクトリ内のすべての画像とPDFファイルのパスを取得"""
-    if not os.path.exists(DOCS_DIR):
-        print(f"ドキュメントディレクトリ {DOCS_DIR} が存在しません")
-        return []
-    
+    """ソースコード内のすべての画像とPDFファイルのパスを取得"""
     all_files = []
+    
     # 画像ファイルを取得
     for ext in IMAGE_EXTENSIONS:
-        pattern = os.path.join(DOCS_DIR, f"**/*{ext}")
+        pattern = os.path.join(SOURCE_CODE_DIR, f"**/*{ext}")
         found_files = glob.glob(pattern, recursive=True)
         print(f"画像検索パターン {pattern} で {len(found_files)} ファイルが見つかりました")
         print(f"見つかったファイル: {found_files}")
@@ -87,7 +84,7 @@ def get_all_doc_files():
     
     # PDFファイルを取得
     for ext in PDF_EXTENSIONS:
-        pattern = os.path.join(DOCS_DIR, f"**/*{ext}")
+        pattern = os.path.join(SOURCE_CODE_DIR, f"**/*{ext}")
         found_files = glob.glob(pattern, recursive=True)
         print(f"PDF検索パターン {pattern} で {len(found_files)} ファイルが見つかりました")
         print(f"見つかったファイル: {found_files}")

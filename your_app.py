@@ -391,8 +391,8 @@ async def root(request: Request):
             <p>コードベースのインデックスを作成します。新しいコードファイル、画像、PDFを追加した場合は再実行してください。</p>
             <div class="info-box">
                 <p><strong>ドキュメント処理について:</strong></p>
-                <p>画像ファイル（PNG、JPEG、GIF、BMP）は <code>source_code/docs/images/</code> に配置してください。</p>
-                <p>PDFファイルは <code>source_code/docs/pdf/</code> に配置してください。</p>
+                <p>画像ファイル（PNG、JPEG、GIF、BMP）は <code>source_code/</code> 直下、または <code>source_code/docs/images/</code> に配置できます。</p>
+                <p>PDFファイルは <code>source_code/</code> 直下、または <code>source_code/docs/pdf/</code> に配置できます。</p>
                 <p>ファイルを追加した後は、インデックスを再作成する必要があります。</p>
             </div>
             <button id="indexButton" onclick="createIndex()">インデックス作成</button>
@@ -570,7 +570,7 @@ async def root(request: Request):
                     
                     const data = await response.json();
                     
-                    let resultHTML = `<h3>回答:</h3><p>${data.answer.replace(/\\n/g, '<br>')}</p>`;
+                    let resultHTML = `<h3>回答:</h3><p>${data.answer ? data.answer.replace(/\\n/g, '<br>') : ''}</p>`;
                     
                     if (data.sources && data.sources.length > 0) {
                         resultHTML += `<h3>参照ソース:</h3>`;
